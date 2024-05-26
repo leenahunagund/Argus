@@ -35,13 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const container= document.getElementById('responseContainer');
   const emailButton = document.getElementById('emailButton');
   let newTabId;  // Store the ID of the new tab
-  //emailButton.addEventListener('click', function () {
-    // Open Gmail in a new tab
-    //chrome.tabs.create({ url: 'http://localhost:7071/api/emailScriptAttack' });
-
-    // Trigger the Azure API endpoint (replace 'YOUR_AZURE_API_ENDPOINT' with the actual endpoint)
-   
-  //});
+  
   
 
   
@@ -158,10 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
     port.postMessage({ action: 'captureScreenshot' });
   });
   
-  //captureButton.addEventListener('click', function () {
-    // Send a message to the backgroound script to capture the screenshot
-   // port.postMessage({ action: 'captureScreenshot' });});
-  // Listen for messages from the background script
+  
   port.onMessage.addListener(function (message) {
     if (message.action === 'displayResponse') {
       if (request.response) {
@@ -169,19 +160,7 @@ document.addEventListener('DOMContentLoaded', function () {
       } else if (request.error) {
         alert('Error:\n' + request.error);
       }
-        //Display the API response in the popup
-       //responseContainer.innerText = JSON.stringify(message.response, null, 2);
-       
-      //console.log('Received API response:', message.response); // Inspect the response content
-      // Call a function to create a popup window with the response
-    }
-  });
-   // Trigger capturing the screenshot when the button is clicked
-  //captureBtn.addEventListener('click', function () {
-    // Send a message to the background script to capture the screenshot
-    //port.postMessage({ action: 'captureScreenshot' });
-  //});
-//});
+        
 document.addEventListener('DOMContentLoaded', function () {
 chrome.runtime.onMessage.addListener(function (request) {
   if (request.action === 'apiResponses') {
